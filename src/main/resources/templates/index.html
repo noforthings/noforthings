@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Cá nhân hóa học tập</title>
+
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="img/logo.jpg" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="css/aos.css" rel="stylesheet">
+  <link href="css/glightbox.min.css" rel="stylesheet">
+  <link href="css/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/custom-home.css" rel="stylesheet">
+  <link href="css/todo-list.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+
+    <div class="container container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="img/logo.jpg" alt="">
+        <h1 class="sitename">Đại học Công Nghiệp Hà Nội</h1>
+      </a>
+
+      <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="">
+          <input type="text" name="query" placeholder="Tìm kiếm" title="Nhập từ khóa">
+          <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+      </div><!-- End Search Bar -->
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li class="nav-item d-block d-xl-none">
+            <a class="nav-link nav-icon search-bar-toggle " href="#">
+              <i class="bi bi-search"></i>
+            </a>
+          </li><!-- End Search Icon-->
+          
+          <li><a th:href="@{/}" class="d-flex flex-column active">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Trang chủ</span>
+          </a></li>
+          <li><a th:href="@{/page/todo-list}" class="d-flex flex-column">
+            <i class="bi bi-check2-circle"></i>
+            <span>Việc cần làm</span>
+          </a></li>
+          <li><a th:href="@{/schedule}" class="d-flex flex-column">
+            <i class="bi bi-calendar"></i>
+            <span>Lịch biểu</span>
+          </a></li>
+          <li><a th:href="@{/jobs}" class="d-flex flex-column">
+            <i class="bi bi-briefcase-fill"></i>
+            <span>Công việc</span>
+          </a></li>
+          <li><a href="" class="d-flex flex-column">
+            <i class="bi bi-bell-fill"></i>
+            <span>Thông báo</span>
+
+          </a></li>
+          <li><a href="#" class="account-btn d-flex flex-column">
+            <div class="avatar"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+            <div class="d-inline-flex align-items-center justify-content-center account-sub">
+              <span>Tôi</span><i class="bi bi-caret-down-fill fs-6"></i>
+            </div>
+
+            </a>
+            <div class="account rounded shadow p-3 mb-5 d-flex flex-column">
+              <div class="d-flex flex-row">
+                <div class="avatar my-auto me-2"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+                <div class="d-flex flex-column">
+                  <span class="fw-semibold">Nguyễn Hồng Sắc</span>
+                  <span class="fw-light">Sinh viên năm 3</span>
+
+                </div>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div>
+                <a href="#">
+                <i class="bi bi-person-gear"></i>
+
+                <span>Tài khoản</span></a>
+
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-translate"></i>
+
+                <span>Ngôn ngữ</span></a>
+
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-question-circle-fill"></i>
+
+                <span>Trợ giúp</span></a>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div>
+                <a th:href="@{/logout}">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span></a>
+
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- <i class="mobile-nav-toggle d-md-none bi bi-list"></i> -->
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <!-- Main Card Info-->
+      <div class="mcard container" data-aos="fade-right" data-aos-delay="100">
+        <div class="card shadow-sm mb-1">
+          <img src="img/avatar-bg.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="mcard-item mcard-avatar justify-content-center">
+              <a href="">
+                <div class="avatar mx-auto"><img src="img/about-company-1.jpg"></div>
+                <div class="mt-5">
+                  <span class="fw-medium fs-5">Nguyễn Sắc</span>
+                </div>
+              </a>
+            </div>
+            <div>
+              <hr>
+            </div>
+            <div class="mobile-mcard">
+              <div class="mcard-item">
+                <a href="">
+                  <i class="bi bi-book-fill"></i>
+                  <span class="ms-2 fw-light">Study</span><br>
+                  <span>Learn something new</span>
+                </a>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div class="mcard-item">
+                <a href="">
+                  <i class="bi bi-bookmark-fill"></i>
+                  <span class="ms-2 fw-light">Saved items</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-mcard showmore mb-3">
+          <a href="" class="text-body-primary">Show more</a>
+        </div>
+
+        <div class="card mcard2 shadow-sm">
+          <div class="card-body">
+            <div class="mcard-item-2 mb-1">
+              <a href="">
+                <i class="bi bi-briefcase-fill"></i>
+                <span class="ms-2">Job</span>
+              </a>
+            </div>
+            <div class="mcard-item-2 mb-1">
+              <a href="">
+                <i class="bi bi-calendar-event"></i>
+                <span class="ms-2">Event</span>
+              </a>
+            </div>
+            <div>
+              <hr>
+            </div>
+            <div class="mcard-item-2 text-center">
+              <a href="">
+                <span>Discover more</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- /Main Card -->
+
+      <!-- Todolist -->
+      <div class="content-card container" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm">
+          <div class="card-body todo-list">
+            <h3 class="todo-header">Todo List <i class="bi bi-clipboard2-check" style="color: #47abff;"></i></h3>
+            <input class="todo-search" type="text" placeholder="Tìm kiếm">
+            <div class="todo-status">
+              <span><a href="">All</a></span>
+              <span class="active"><a href="">Pending</a></span>
+              <span><a href="">Completed</a></span>
+            </div>
+            <div class="todo" th:each="todo : ${todos}" th:if="${todo.status.toLowerCase() == 'doing'}">
+                <form action="/todo/update-status" method="post">
+                  <input type="hidden" name="id" th:value="${todo.id}" />
+                  <input type="hidden" name="status" value="DONE" />
+                  <input type="hidden" name="source" value="index" />
+                  <button id="checkmark" class="icon-complete" type="submit">
+                    <i class="bi bi-check2"></i>
+                  </button>
+                </form>
+                <div class="todo-title">
+                  <span th:text="${todo.title}">Học Java</span>
+                </div>
+                <div class="todo-calendar position-relative">
+                  <span th:text="${#dates.format(todo.dueDate, 'dd/MM/yyyy')}"></span>
+                  <i class="bi bi-calendar2-check"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Side Card -->
+      <div class="scard container d-flex justify-content-end" data-aos="fade-left" data-aos-delay="100">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Kỹ năng</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Con đường của bạn đến sự xuất sắc trong học tập</h6>
+            <hr>
+            <div class="scard-item m-1 d-flex">
+              <i class="bi bi-laptop me-2"></i>
+              <span>Kỹ năng lập trình</span>
+              <span th:text="${programmingSkill}" class="scard-item-point ms-auto me-2"></span>
+            </div>
+            <div class="scard-item m-1 d-flex">
+              <i class="bi bi-rulers me-2"></i>
+              <span>Kỹ năng thiết kế</span>
+              <span th:text="${designSkill}" class="scard-item-point ms-auto me-2"></span>
+            </div>
+            <div class="scard-item m-1 d-flex">
+              <i class="bi bi-wechat me-2"></i>
+              <span>Kỹ năng tương tác</span>
+              <span th:text="${interactionSkill}" class="scard-item-point ms-auto me-2">8</span>
+            </div>
+            <div class="scard-item m-1 d-flex">
+              <i class="bi bi-bar-chart-steps me-2"></i>
+              <span>Tư duy logic</span>
+              <span th:text="${logicalThinking}" class="scard-item-point ms-auto me-2">8</span>
+            </div>
+            <div class="scard-item m-1 d-flex">
+              <i class="bi bi-shield-check me-2"></i>
+              <span>Độ tin cậy</span>
+              <span class="scard-item-point ms-auto me-2">9.5</span>
+            </div>
+            
+            <div id="studycreditChart" style="min-height: 200px;" class="scard-item echart m-1"></div>
+
+              <script th:inline="javascript">
+                document.addEventListener("DOMContentLoaded", () => {
+                	const programmingSkill = /*[[${programmingSkill}]]*/ 0;
+                    const designSkill = /*[[${designSkill}]]*/ 0;
+                    const logicalThinking = /*[[${logicalThinking}]]*/ 0;
+                    const interactionSkill = /*[[${interactionSkill}]]*/ 0;
+                    const reliability = /*[[${reliability}]]*/ 0;
+                    const rdata = [programmingSkill,designSkill,interactionSkill,reliability,logicalThinking];
+
+                console.log(programmingSkill, designSkill, logicalThinking, interactionSkill, reliability);
+                
+                  var budgetChart = echarts.init(document.querySelector("#studycreditChart")).setOption({
+                    legend: {
+                      data: []
+                    },
+                    radar: {
+                      // shape: 'circle',
+                      indicator: [{
+                          name: 'Lập trình',
+                          max: 20,
+                          color: '#3d4348'
+                        },
+                        {
+                          name: 'Thiết kế',
+                          max: 20,
+                          color: '#3d4348'
+                        },
+                        {
+                          name: 'Tương tác',
+                          max: 20,
+                          color: '#3d4348'
+                        },
+                        {
+                          name: 'Tin cậy',
+                          max: 20,
+                          color: '#3d4348'
+                        },
+                        {
+                          name: 'Logic',
+                          max: 20,
+                          color: '#3d4348'
+                        }
+                      ]
+                    },
+                    series: [{
+                      color: '#198754',
+                      name: 'Study credit',
+                      type: 'radar',
+                      
+                      data: [{
+                          value: rdata,
+                          name: 'Study Credit'
+                        }
+                      ]
+                    }]
+                  });
+                });
+              </script>
+          </div>
+        </div>
+      </div> <!-- /Side Card -->
+
+    </section><!-- /Hero Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">QuickStart</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">QuickStart</strong><span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/apexcharts.min.js"></script>
+  <script src="js/glightbox.min.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/echarts.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="js/main.js"></script>
+  <script src="js/custom-home.js"></script>
+  <script src="js/todo-list.js"></script>
+
+</body>
+
+</html>

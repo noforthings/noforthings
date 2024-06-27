@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Công việc</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="img/logo.jpg" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/glightbox.min.css" rel="stylesheet">
+    <link href="css/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/custom-home.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/job.css">
+</head>
+
+<body style="background-color: #f5f5f5;">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+
+    <div class="container container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="img/logo.jpg" alt="">
+        <h1 class="sitename">Đại học Công Nghiệp Hà Nội</h1>
+      </a>
+
+      <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="">
+          <input type="text" name="query" placeholder="Tìm kiếm" title="Nhập từ khóa">
+          <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+      </div><!-- End Search Bar -->
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li class="nav-item d-block d-xl-none">
+            <a class="nav-link nav-icon search-bar-toggle " href="#">
+              <i class="bi bi-search"></i>
+            </a>
+          </li><!-- End Search Icon-->
+          
+          <li><a th:href="@{/}" class="d-flex flex-column">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Trang chủ</span>
+          </a></li>
+          <li><a th:href="@{/page/todo-list}" class="d-flex flex-column">
+            <i class="bi bi-check2-circle"></i>
+            <span>Việc cần làm</span>
+          </a></li>
+          <li><a th:href="@{/schedule}" class="d-flex flex-column">
+            <i class="bi bi-calendar"></i>
+            <span>Lịch biểu</span>
+          </a></li>
+          <li><a th:href="@{/jobs}" class="d-flex flex-column active">
+            <i class="bi bi-briefcase-fill"></i>
+            <span>Công việc</span>
+          </a></li>
+          <li><a href="" class="d-flex flex-column">
+            <i class="bi bi-bell-fill"></i>
+            <span>Thông báo</span>
+
+          </a></li>
+          <li><a href="#" class="account-btn d-flex flex-column">
+            <div class="avatar"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+            <div class="d-inline-flex align-items-center justify-content-center account-sub">
+              <span>Tôi</span><i class="bi bi-caret-down-fill fs-6"></i>
+            </div>
+
+            </a>
+            <div class="account rounded shadow p-3 mb-5 d-flex flex-column">
+              <div class="d-flex flex-row">
+                <div class="avatar my-auto me-2"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+                <div class="d-flex flex-column">
+                  <span class="fw-semibold">Nguyễn Hồng Sắc</span>
+                  <span class="fw-light">Sinh viên năm 3</span>
+
+                </div>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div>
+                <a href="#">
+                <i class="bi bi-person-gear"></i>
+
+                <span>Tài khoản</span></a>
+
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-translate"></i>
+
+                <span>Ngôn ngữ</span></a>
+
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-question-circle-fill"></i>
+
+                <span>Trợ giúp</span></a>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span></a>
+
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- <i class="mobile-nav-toggle d-md-none bi bi-list"></i> -->
+      </nav>
+
+    </div>
+  </header>
+
+    <section style="padding: 90px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg-10">
+
+                        <h2>Giới thiệu các ngành nghề trong lĩnh vực công nghệ thông tin</h2>
+                    </div>
+                    <div class="col-lg-2">
+                        <a class="btn btn-success" th:href="@{/co}">
+                            Định hướng cho bạn
+                        </a>
+                    </div>
+                </div>
+                <div th:each="jobResponse, stat : ${jobPage.content}" class="col-lg-12">
+                    <div class="row job">
+                        <div class="col-lg-8">
+                            <h4 th:text="${jobResponse.jobDTO.name}" style="color: #dd3f24; font-weight: 700;">Job name</h4>
+                            <div>
+                                <div class="job-title">
+                                    <i class="bi bi-journal me-2"></i>Mô tả:
+                                </div>
+                                <div th:text="${jobResponse.jobDTO.description}" class="ms-4"></div>
+                            </div>
+                            <div>
+                                <div class="job-title">
+                                    <i class="bi bi-ui-checks me-2"></i>Yêu cầu:
+                                </div>
+                                <div th:text="${jobResponse.jobDTO.require}" class="ms-4"></div>
+                            </div>
+                            <div>
+                                <div class="job-title">
+                                    <i class="bi bi-list-check me-2"></i>Bạn cần tốt các kỹ năng:
+                                </div>
+                                <div th:text="${jobResponse.jobDTO.skills}" class="ms-4"></div>
+                            </div>
+                            <div>
+                                <div class="job-title">
+                                    <i class="bi bi-link-45deg me-2"></i>Links:
+                                </div>
+                                <button class="ms-3 text-danger" th:text="${jobResponse.jobDTO.name}"
+                                    th:attr="data-url=${jobResponse.jobDTO.links}"
+                                    style="border: none; background-color: rgba(0,0,0,0);"
+                                    onclick="navigateToUrl(this)">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="compatible-rate col-lg-4">
+                            <!-- Radial Bar Chart -->
+                            <div th:attr="id='radialBarChart-' + ${stat.index}"></div>
+                
+                            <script th:inline="javascript">
+                                window.addEventListener("load", function() {
+                                    const programmingSkill = /*[[${jobResponse.JobDetailDTO.coding}]]*/ 0;
+                                    const designSkill = /*[[${jobResponse.jobDetailDTO.designing}]]*/ 0;
+                                    const logicalThinking = /*[[${jobResponse.jobDetailDTO.logicalThinking}]]*/ 0;
+                                    const interactionSkill = /*[[${jobResponse.jobDetailDTO.interact}]]*/ 0;
+                                    const reliability = /*[[${jobResponse.jobDetailDTO.reliability}]]*/ 0;
+                
+                                    new ApexCharts(document.querySelector(`#radialBarChart-[[${stat.index}]]`), {
+                                        series: [
+                                            programmingSkill, designSkill, interactionSkill, logicalThinking, reliability
+                                        ],
+                                        chart: {
+                                            height: 350,
+                                            type: 'radialBar',
+                                            toolbar: {
+                                                show: true
+                                            }
+                                        },
+                                        plotOptions: {
+                                            radialBar: {
+                                                dataLabels: {
+                                                    name: {
+                                                        fontSize: '22px',
+                                                    },
+                                                    value: {
+                                                        fontSize: '16px',
+                                                    },
+                                                    total: {
+                                                        show: true,
+                                                        label: 'Total',
+                                                        formatter: function (w) {
+                                                            // Tổng số của tất cả các giá trị trong series
+                                                            return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        labels: ['Kỹ năng lập trình', 'Kỹ năng thiết kế', 'Kỹ năng tương tác', 'Tư duy logic', 'Độ tin cậy'],
+                                    }).render();
+                                });
+                            </script>
+                            <!-- End Radial Bar Chart -->
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="prev-next">
+                    <div>
+                        <a th:if="${jobPage.hasPrevious()}"
+                            th:href="@{/jobs(page=${jobPage.number - 1}, size=${jobPage.size})}"><i
+                                class="bi bi-arrow-left-circle-fill"></i></a>
+                    </div>
+                    <div>
+                        <span th:text="'Page ' + ${jobPage.number + 1} + ' of ' + ${jobPage.totalPages}"></span>
+                    </div>
+                    <div>
+                        <a th:if="${jobPage.hasNext()}"
+                            th:href="@{/jobs(page=${jobPage.number + 1}, size=${jobPage.size})}"><i
+                                class="bi bi-arrow-right-circle-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Vendor JS Files -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/apexcharts.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/glightbox.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="js/main.js"></script>
+    <script src="js/custom-home.js"></script>
+>>>>>>> origin
+</body>
+
+</html>

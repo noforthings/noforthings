@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Cá nhân hóa học tập</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="img/logo.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/aos.css" rel="stylesheet">
+  <link href="css/glightbox.min.css" rel="stylesheet">
+  <link href="css/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/custom-home.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a th:href="@{/}" class="logo d-flex align-items-center">
+        <img src="img/logo.png" alt="">
+        <h1 class="sitename">Đại học Công Nghiệp Hà Nội</h1>
+      </a>
+
+      <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="">
+          <input type="text" name="query" placeholder="Tìm kiếm" title="Nhập từ khóa">
+          <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+      </div><!-- End Search Bar -->
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li class="nav-item d-block d-xl-none">
+            <a class="nav-link nav-icon search-bar-toggle " href="#">
+              <i class="bi bi-search"></i>
+            </a>
+          </li><!-- End Search Icon-->
+          
+          <li><a th:href="@{/}" class="d-flex flex-column">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Trang chủ</span>
+          </a></li>
+          <li><a th:href="@{/page/todo-list}" class="d-flex flex-column">
+            <i class="bi bi-check2-circle"></i>
+            <span>Việc cần làm</span>
+          </a></li>
+          <li><a th:href="@{/schedule}" class="d-flex flex-column active">
+            <i class="bi bi-calendar"></i>
+            <span>Lịch biểu</span>
+          </a></li>
+          <li><a th:href="@{/jobs}" class="d-flex flex-column">
+            <i class="bi bi-briefcase-fill"></i>
+            <span>Công việc</span>
+          </a></li>
+          <li><a href="" class="d-flex flex-column">
+            <i class="bi bi-bell-fill"></i>
+            <span>Thông báo</span>
+          </a></li>
+          <li><a href="#" class="account-btn d-flex flex-column">
+            <div class="avatar"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+            <div class="d-inline-flex align-items-center justify-content-center account-sub">
+              <span>Tôi</span><i class="bi bi-caret-down-fill fs-6"></i>
+            </div>
+            </a>
+            <div class="account rounded shadow p-3 mb-5 d-flex flex-column">
+              <div class="d-flex flex-row">
+                <div class="avatar my-auto me-2"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+                <div class="d-flex flex-column">
+                  <span class="fw-semibold">Nguyễn Hồng Sắc</span>
+                  <span class="fw-light">Sinh viên năm 3</span>
+                </div>
+              </div>
+              <div><hr></div>
+              <div>
+                <a href="#">
+                <i class="bi bi-person-gear"></i>
+                <span>Tài khoản</span></a>
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-translate"></i>
+                <span>Ngôn ngữ</span></a>
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-question-circle-fill"></i>
+                <span>Trợ giúp</span></a>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- <i class="mobile-nav-toggle d-md-none bi bi-list"></i> -->
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="features" class="features section mt-5">
+
+      <div class="container">
+        <div class="row">
+        <div class="schedule col mb-3" id="schedule">
+          <div class="schedule-header d-flex m-1 justify-content-around">
+            <div class="d-flex flex-row mx-2 col-6 align-items-center">
+              <h1>Lịch học tập</h1>
+            </div>
+            <div class="d-flex flex-row mx-2">
+              <span class="m-2">Bắt đầu</span>
+              <input type="date" class="form-control" value="2024-06-24">
+              <span class="m-2">Kết thúc</span>
+              <input type="date" class="form-control" value="2024-06-24">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-2 semesterTitle">
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" data-bs-toggle="tab" data-bs-target="#semester1"><i class="bi bi-calendar2-range me-2"></i>Học kì 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#semester2"><i class="bi bi-calendar2-range me-2"></i>Học kì 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#semester3"><i class="bi bi-calendar2-range me-2"></i>Học kì 3</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#semester4"><i class="bi bi-calendar2-range me-2"></i>Học kì 4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#semester5"><i class="bi bi-calendar2-range me-2"></i>Học kì 5</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#semester6"><i class="bi bi-calendar2-range me-2"></i>Học kì 6</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#semester7"><i class="bi bi-calendar2-range me-2"></i>Học kì 7</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#semester8"><i class="bi bi-calendar2-range me-2"></i>Học kì 8</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-10 semesterContent">
+              <div class="tab-content">
+                <div class="tab-pane fade active show" id="semester1" th:if="${sub1}">
+                  <div class="item" th:each="sub : ${sub1}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="semester2" th:if="${sub2}">
+                  <div class="item" th:each="sub : ${sub2}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="semester3" th:if="${sub3}">
+                  <div class="item" th:each="sub : ${sub3}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="semester4" th:if="${sub4}">
+                  <div class="item" th:each="sub : ${sub4}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="semester5" th:if="${sub5}">
+                  <div class="item" th:each="sub : ${sub5}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="semester6" th:if="${sub6}">
+                  <div class="item" th:each="sub : ${sub6}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="semester7" th:if="${sub7}">
+                  <div class="item" th:each="sub : ${sub7}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="semester8" th:if="${sub8}">
+                  <div class="item" th:each="sub : ${sub8}">
+                    <a href="#"><i class="bi bi-duffle me-2"></i><span1 th:text="${sub.name}"></span1></a>
+                    <span><i class="bi bi-stopwatch me-2"></i><span1 th:text="${sub.duration}"></span1> Tiết/Tuần</span>
+                    <span><i class="bi bi-book me-2"></i><span1 th:text="${sub.type}"></span1></span>
+                    <span><i class="bi bi-graph-up-arrow me-2"></i><span1></span1></span>
+                    <span><i class="bi bi-journal-check me-2"></i><span1 th:text="${sub.status}"></span1></span>
+                  </div>
+                  <div class="mt-2">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+
+        <div class="col academicTranscript" placeholder-glow>
+          <div class="title d-flex justify-content-around my-2" onclick="smallAcademicTranscript()">
+            <h1>Học phần</h1>
+            <h1>Điểm</h1>
+          </div>
+          <div class="item" th:each="sd : ${scoreDetail}">
+            <span th:text="${sd.courseName}"></span>
+            <span th:text="${sd.scoreValue}"></span>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a th:href="@{/}" class="logo d-flex align-items-center">
+            <span class="sitename">Persionalized Learning</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Nguyen Hong Sac</p>
+            <p>Ha Noi University of Industry</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+(84) 383 890 203</span></p>
+            <p><strong>Email:</strong> <span>sac@gmail.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Todolist</a></li>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">Job</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>More content</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Persionalized Learning</strong><span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">Group 17</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/glightbox.min.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/echarts.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="js/main.js"></script>
+  <script src="js/custom-home.js"></script>
+  <script src="js/schedule.js"></script>
+
+</body>
+
+</html>

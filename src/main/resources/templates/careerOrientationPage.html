@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Công việc</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="img/logo.jpg" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/glightbox.min.css" rel="stylesheet">
+    <link href="css/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/custom-home.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <style>
+        table {
+            border-collapse: collapse;
+            /* Gộp các đường viền liền kề lại thành một */
+            width: 100%;
+            /* Đặt độ rộng của bảng là 100% */
+        }
+
+        table {
+            th {
+                max-width: 50px;
+                /* Điều chỉnh độ rộng tối đa của thẻ th */
+                white-space: normal;
+                /* Cho phép xuống dòng */
+                word-wrap: break-word;
+                /* Chia từ khi cần thiết để xuống dòng */
+            }
+
+            th,
+            td {
+                border: 1px solid color(srgb 0.8666 0.8667 0.8668);
+                /* Đặt đường viền cho thẻ th và td */
+                padding: 8px;
+                /* Khoảng cách bên trong ô */
+            }
+        }
+    </style>
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+
+    <div class="container container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="img/logo.jpg" alt="">
+        <h1 class="sitename">Đại học Công Nghiệp Hà Nội</h1>
+      </a>
+
+      <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="">
+          <input type="text" name="query" placeholder="Tìm kiếm" title="Nhập từ khóa">
+          <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+      </div><!-- End Search Bar -->
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li class="nav-item d-block d-xl-none">
+            <a class="nav-link nav-icon search-bar-toggle " href="#">
+              <i class="bi bi-search"></i>
+            </a>
+          </li><!-- End Search Icon-->
+          
+          <li><a th:href="@{/}" class="d-flex flex-column">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Trang chủ</span>
+          </a></li>
+          <li><a th:href="@{/page/todo-list}" class="d-flex flex-column">
+            <i class="bi bi-check2-circle"></i>
+            <span>Việc cần làm</span>
+          </a></li>
+          <li><a th:href="@{/schedule}" class="d-flex flex-column">
+            <i class="bi bi-calendar"></i>
+            <span>Lịch biểu</span>
+          </a></li>
+          <li><a th:href="@{/jobs}" class="d-flex flex-column active">
+            <i class="bi bi-briefcase-fill"></i>
+            <span>Công việc</span>
+          </a></li>
+          <li><a href="" class="d-flex flex-column">
+            <i class="bi bi-bell-fill"></i>
+            <span>Thông báo</span>
+          </a></li>
+          <li><a href="#" class="account-btn d-flex flex-column">
+            <div class="avatar"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+            <div class="d-inline-flex align-items-center justify-content-center account-sub">
+              <span>Tôi</span><i class="bi bi-caret-down-fill fs-6"></i>
+            </div>
+
+            </a>
+            <div class="account rounded shadow p-3 mb-5 d-flex flex-column">
+              <div class="d-flex flex-row">
+                <div class="avatar my-auto me-2"><img src="img/about-company-1.jpg" alt="Avatar"></div>
+                <div class="d-flex flex-column">
+                  <span class="fw-semibold">Nguyễn Hồng Sắc</span>
+                  <span class="fw-light">Sinh viên năm 3</span>
+                </div>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div>
+                <a href="#">
+                <i class="bi bi-person-gear"></i>
+                <span>Tài khoản</span></a>
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-translate"></i>
+                <span>Ngôn ngữ</span></a>
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-question-circle-fill"></i>
+                <span>Trợ giúp</span></a>
+              </div>
+              <div>
+                <hr>
+              </div>
+              <div>
+                <a href="">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- <i class="mobile-nav-toggle d-md-none bi bi-list"></i> -->
+      </nav>
+
+    </div>
+  </header>
+
+    <main class="main">
+
+        <section class="mt-5 section">
+            <!-- Search section -->
+            <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="card-title">Thông tin sinh viên</h5>
+
+                                    <!-- Table with stripped rows -->
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Họ và tên</th>
+                                                <td th:text="${user.fullName}">John Doe</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Email</th>
+                                                <td th:text="${user.email}">Brandon</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Giới tính</th>
+                                                <td th:text="${user.gender}">Designer</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Địa chỉ</th>
+                                                <td th:text="${user.address}">28</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- End Table with stripped rows -->
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 class="card-title">Điểm tín dụng học tập</h5>
+
+                                    <!-- Table with stripped rows -->
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Lập trinh</th>
+                                                <td th:text="${programmingSkill}">John Doe</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Thiết kế</th>
+                                                <td th:text="${designSkill}">Brandon</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Tư duy logic</th>
+                                                <td th:text="${logicalThinking}">Designer</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Tương tác</th>
+                                                <td th:text="${interactionSkill}">28</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <!-- List jobs -->
+            <section id="features" class="features section">
+
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <h3>Từ điểm kỹ năng của bạn chương trình định hượng một số ngành nghề bạn có thể tham khảo</h3>
+                        <div th:each="job, stat : ${jobs}" class="col-lg-12 d-flex align-items-center">
+                            <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+                                <li class="nav-item mb-3">
+                                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                                        <img src="img/about-company-1.jpg"></img>
+                                        <div class="col-lg-8">
+                                            <h4 th:text="${job.jobDTO.name}" class="">Job name</h4>
+                                            <div>
+                                                <div>
+                                                    <i class="bi bi-journal me-2"></i>Mô tả:
+                                                </div>
+                                                <div th:text="${job.jobDTO.description}" class="ms-4"></div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <i class="bi bi-ui-checks me-2"></i>Yêu cầu:
+                                                </div>
+                                                <div th:text="${job.jobDTO.require}" class="ms-4"></div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <i class="bi bi-list-check me-2"></i>Bạn cần tốt các kỹ năng:
+                                                </div>
+                                                <div th:text="${job.jobDTO.skills}" class="ms-4"></div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <i class="bi bi-link-45deg me-2"></i>Links:
+                                                    <button th:text="${job.jobDTO.name}"
+                                                        th:attr="data-url=${job.jobDTO.links}"
+                                                        style="border: none; background-color: rgba(0,0,0,0);"
+                                                        onclick="navigateToUrl(this)">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="compatible-rate col-lg-4">
+                                            <div th:id="'trafficChart' + ${stat.index}" style="min-height: 200px;"
+                                                class="echart"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section><!-- /List Job Section -->
+        </section>
+    </main>
+
+    <footer id="footer" class="footer position-relative">
+
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">Persionalized Learning</span>
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>Nguyen Hong Sac</p>
+                        <p>Ha Noi University of Industry</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+(84) 383 890 203</span></p>
+                        <p><strong>Email:</strong> <span>sac@gmail.com</span></p>
+                    </div>
+                    <div class="social-links d-flex mt-4">
+                        <a href=""><i class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Todolist</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Job</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>More content</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Persionalized Learning</strong><span>All Rights
+                    Reserved</span></p>
+            <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">Group 17</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/glightbox.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="js/main.js"></script>
+    <script src="js/custom-home.js"></script>
+    <script th:inline="javascript">
+        /*[[${jobs}]]*/
+        var jobs = /*[[${jobs}]]*/[];
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            jobs.forEach((job, index) => {
+                var chartId = 'trafficChart' + index;
+                var element = document.querySelector(`#${chartId}`);
+                if (element) {
+                    echarts.init(element).setOption({
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        legend: {
+                            top: '5%',
+                            left: 'center',
+                            show: false
+                        },
+                        series: [{
+                            name: 'Skills Distribution',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: false,
+                            label: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                label: {
+                                    show: true,
+                                    fontSize: '16',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            labelLine: {
+                                show: false
+                            },
+                            data: [
+                                { value: job.logic, name: 'Logic' },
+                                { value: job.coding, name: 'Coding' },
+                                { value: job.design, name: 'Design' },
+                                { value: job.interact, name: 'Interact' },
+                                { value: job.reliability, name: 'Reliability' }
+                            ]
+                        }]
+                    });
+                }
+            });
+        });
+
+        function navigateToUrl(button) {
+            var url = button.getAttribute('data-url');
+            // console.log(url);
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+
+</html>

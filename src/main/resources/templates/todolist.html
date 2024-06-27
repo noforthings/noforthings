@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/css/todo-list.css">
+</head>
+
+<body>
+
+    <!-- Kiểm tra và hiển thị thông báo xóa thành công hoặc thất bại bằng JavaScript -->
+    <div th:if="${deleteSuccess != null}">
+        <script>
+            var deleteSuccess = /*[[${deleteSuccess}]]*/ true;
+            if (deleteSuccess) {
+                alert("Xóa thành công!");
+            } else {
+                alert("Xóa thất bại!");
+            }
+        </script>
+    </div>
+
+    <div th:if="${updateTitle != null}">
+        <script>
+            var updateTitle = /*[[${updateTitle}]]*/ true;
+            if (updateTitle) {
+                alert("Chỉnh sửa nhãn thành công!");
+            } else {
+                alert("Chỉnh sửa nhãn không thành công!");
+            }
+        </script>
+    </div>
+
+    <div th:if="${updatePriority != null}">
+        <script>
+            var updatePriority = /*[[${updatePriority}]]*/ true;
+            if (updatePriority) {
+                alert("Chỉnh sửa mức độ ưu tiên thành công!");
+            } else {
+                alert("Chỉnh sửa mức độ ưu tiên không thành công!");
+            }
+        </script>
+    </div>
+
+    <div th:if="${updateCategory != null}">
+        <script>
+            var updateCategory = /*[[${updateCategory}]]*/ true;
+            if (updateCategory) {
+                alert("Chỉnh sửa mức độ ưu tiên thành công!");
+            } else {
+                alert("Chỉnh sửa mức độ ưu tiên không thành công!");
+            }
+        </script>
+    </div>
+
+    <div th:if="${updateDueDate != null}">
+        <script>
+            var updateDueDate = /*[[${updateDueDate}]]*/ true;
+            if (updateDueDate) {
+                alert("Chỉnh sửa mức độ ưu tiên thành công!");
+            } else {
+                alert("Chỉnh sửa mức độ ưu tiên không thành công!");
+            }
+        </script>
+    </div>
+
+    <div th:if="${updateStatus != null}">
+        <script>
+            var updateStatus = /*[[${updateStatus}]]*/ true;
+            if (updateStatus) {
+                alert("Chỉnh sửa mức độ ưu tiên thành công!");
+            } else {
+                alert("Chỉnh sửa mức độ ưu tiên không thành công!");
+            }
+        </script>
+    </div>
+
+    <div class="wrapper">
+        <div class="row-custom">
+            <div class="information-user">
+                <div class="user-image-name">
+                    <img class="user-image" src="/img/user avatar.png" alt="">
+                    <div class="user-name">
+                        <span>Trương Đình Hoài Nam</span>
+                        <p>Sinh viên</p>
+                    </div>
+                    <button><i class="fa-solid fa-angle-left"></i></button>
+                </div>
+                <div class="user-score">
+                    <ul>
+                        <p>Dạng xem Không gian làm việc</p>
+                        <li><a href=""><i class="fa-solid fa-table"></i>Bảng</a></li>
+                        <li><a href=""><i class="fa-solid fa-calendar-days"></i>Lịch</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="todo-list-container">
+                <div class="todo-list-info">
+                    <!-- Start todo -->
+                    <div class="todo item">
+                        <div class="header-todo">
+                            <h3>To do</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div th:each="todo : ${todoLists}" class="list-todo">
+                            <div th:if="${todo.status.toLowerCase() == 'todo'}" class="item-todo">
+                                <div class="todo-title">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    <h4 th:text="${todo.title}">Scope Q1 upcoming work</h4>
+                                </div>
+                                <div class="todo-priority-category">
+                                    <div class="todo-priority">
+                                        <span th:text="${todo.priority}">Medium</span>
+                                    </div>
+                                    <div class="todo-category">
+                                        <span th:text="${todo.category}">Other</span>
+                                    </div>
+                                </div>
+                                <div class="todo-expired-time">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span th:text="${todo.dueDate}">Wednesday</span>
+                                </div>
+                                <div class="edit-todo">
+                                    <button class="show-edit" th:data-id="${todo.id}" th:data-user-id="${userId}"><i
+                                            class="fa-regular fa-pen-to-square"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-todo">
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa-solid fa-plus"></i>
+                                Thêm
+                            </button>
+                        </div>
+                    </div>
+                    <!-- End todo -->
+
+                    <!-- Start Doing -->
+                    <div class="doing item">
+                        <div class="header-todo">
+                            <h3>In Progress</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                    class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div th:each="todo : ${todoLists}" class="list-todo">
+                            <div th:if="${todo.status.toLowerCase() == 'doing'}" class="item-todo">
+                                <div class="todo-title">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    <h4 th:text="${todo.title}">Scope Q1 upcoming work</h4>
+                                </div>
+                                <div class="todo-priority-category">
+                                    <div class="todo-priority">
+                                        <span th:text="${todo.priority}">Medium</span>
+                                    </div>
+                                    <div class="todo-category">
+                                        <span th:text="${todo.category}">Other</span>
+                                    </div>
+                                </div>
+                                <div class="todo-expired-time">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span th:text="${todo.dueDate}">Wednesday</span>
+                                </div>
+                                <div class="edit-todo">
+                                    <button class="show-edit" th:data-id="${todo.id}" th:data-user-id="${userId}"><i
+                                            class="fa-regular fa-pen-to-square"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-todo">
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                    class="fa-solid fa-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                    <!-- End Doing -->
+
+                    <!-- Start Done -->
+                    <div class="done item">
+                        <div class="header-todo">
+                            <h3>Done</h3>
+                            <i style="margin-left: 150px; margin-top: 3px; color: #fdbf01;"
+                                class="fa-solid fa-bolt"></i>
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                    class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div th:each="todo : ${todoLists}" class="list-todo">
+                            <div th:if="${todo.status.toLowerCase() == 'done'}" class="item-todo">
+                                <div class="todo-title">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h4 th:text="${todo.title}">Scope Q1 upcoming work</h4>
+                                </div>
+                                <div class="todo-priority-category">
+                                    <div class="todo-priority">
+                                        <span th:text="${todo.priority}">Medium</span>
+                                    </div>
+                                    <div class="todo-category">
+                                        <span th:text="${todo.category}">Other</span>
+                                    </div>
+                                </div>
+                                <div class="todo-expired-time">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span th:text="${todo.dueDate}">Wednesday</span>
+                                </div>
+                                <div class="edit-todo">
+                                    <button class="show-edit" th:data-id="${todo.id}" th:data-user-id="${userId}"><i
+                                            class="fa-regular fa-pen-to-square"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-todo">
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                    class="fa-solid fa-plus"></i> Thêm</button>
+                        </div>
+                    </div>
+                    <!-- End Done -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal chỉnh sửa -->
+    <div class="edit-container" id="edit-container">
+        <div class="edit-modal">
+            <!-- Trường ẩn để lưu ID của todo -->
+            <input type="hidden" id="todo-id">
+            <input type="hidden" id="user-id">
+
+            <!-- Chỉnh sửa nhãn -->
+            <div class="edit-item">
+                <button><i class="fa-solid fa-tag"></i>Chỉnh sửa nhãn</button>
+                <div class="edit-title">
+                    <h4>Nhãn</h4>
+                    <form id="label-form" action="/todo/update-title" method="post">
+                        <input type="hidden" name="id" id="label-id">
+                        <input type="hidden" name="userId" id="user-id-label">
+                        <input type="text" name="label" id="edit-label" placeholder="Nhãn mới">
+                        <input type="submit" class="btn btn-primary f-left" value="lưu">
+                    </form>
+                </div>
+            </div>
+
+            <!-- Chỉnh sửa mức độ ưu tiên -->
+            <div class="edit-item">
+                <button><i class="fa-solid fa-bomb"></i>Mức độ ưu tiên</button>
+                <div class="edit-title">
+                    <h4>Mức độ ưu tiên</h4>
+                    <form id="priority-form" action="/todo/update-priority" method="post">
+                        <input type="hidden" name="id" id="priority-id">
+                        <input type="hidden" name="userId" id="user-id-priority">
+                        <select name="priority" id="edit-priority" class="form-select"
+                            aria-label="Default select example">
+                            <option selected>Chọn mức độ ưu tiên</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        <input type="submit" class="btn btn-primary f-left" value="lưu">
+                    </form>
+                </div>
+            </div>
+
+            <!-- Chỉnh sửa loại việc -->
+            <div class="edit-item">
+                <button><i class="fa-regular fa-clipboard"></i>Loại việc</button>
+                <div class="edit-title">
+                    <h4>Loại việc</h4>
+                    <form id="category-form" action="/todo/update-category" method="post">
+                        <input type="hidden" name="id" id="category-id">
+                        <input type="hidden" name="userId" id="user-id-category">
+                        <input type="text" name="category" id="edit-category" placeholder="Loại việc mới">
+                        <input type="submit" class="btn btn-primary f-left" value="lưu">
+                    </form>
+                </div>
+            </div>
+
+            <!-- Chỉnh sửa ngày -->
+            <div class="edit-item">
+                <button><i class="fa-regular fa-clock"></i>Chỉnh sửa ngày</button>
+                <div class="edit-title">
+                    <h4>Ngày</h4>
+                    <form id="date-form" action="/todo/update-date" method="post">
+                        <input type="hidden" name="id" id="date-id">
+                        <input type="hidden" name="userId" id="user-id-date">
+                        <input type="datetime-local" name="date" id="edit-date" placeholder="Chỉnh sửa ngày">
+                        <input type="submit" class="btn btn-primary f-left" value="lưu">
+                    </form>
+                </div>
+            </div>
+
+            <!-- Di chuyển -->
+            <div class="edit-item">
+                <button><i class="fa-solid fa-arrow-right-long"></i>Di chuyển</button>
+                <div class="edit-title">
+                    <h4>Lựa chọn</h4>
+                    <form id="status-form" action="/todo/update-status" method="post">
+                        <input type="hidden" name="id" id="status-id">
+                        <input type="hidden" name="userId" id="user-id-status">
+
+                        <input type="hidden" name="source" id="todo">
+
+                        <select name="status" id="edit-status" class="form-select" aria-label="Default select example">
+                            <option selected>Di chuyển</option>
+                            <option value="Todo">Todo</option>
+                            <option value="Doing">Doing</option>
+                            <option value="Done">Done</option>
+                        </select>
+                        <input type="submit" class="btn btn-primary f-left" value="lưu">
+                    </form>
+                </div>
+            </div>
+
+            <!-- Xóa -->
+            <div class="edit-item">
+                <form id="delete-form" action="/delete-todo" method="post">
+                    <input type="hidden" name="id" id="delete-id">
+                    <input type="hidden" name="userId" id="user-id-delete">
+                    <button type="submit" class=""><i class="fa-solid fa-trash"></i>Xoá</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Start modal add -->
+    <div class="modal fade add-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm công việc</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/add-todo" method="post" th:object="${newTodo}">
+                        <input type="hidden" name="userId" th:value="${userId}">
+
+                        <div class="option-add">
+                            <input th:field="*{title}" type="text" class="form-control" placeholder="Tên công việc">
+                        </div>
+                        <div class="option-add">
+                            <select class="form-select" th:field="*{priority}" aria-label="Default select example">
+                                <option value="">Chọn mức độ ưu tiên</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <div class="option-add">
+                            <input th:field="*{category}" type="text" class="form-control" placeholder="Loại công việc">
+                        </div>
+                        <div class="option-add">
+                            <input th:field="*{dueDate}" type="datetime-local" class="form-control"
+                                placeholder="Ngày hết hạn">
+                        </div>
+                        <div class="option-add">
+                            <select class="form-select" th:field="*{status}" aria-label="Default select example">
+                                <option value="">Trạng thái</option>
+                                <option value="Todo">Todo</option>
+                                <option value="Doing">Doing</option>
+                                <option value="Done">Done</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End modal add -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/js/todo-list.js"></script>
+
+    <script th:inline="javascript">
+
+        var success = /*[[${success}]]*/ false;
+        var error = /*[[${error}]]*/ false;
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (success) {
+                alert("Thêm công việc thành công!");
+            } else if (error) {
+                alert("Thêm công việc thất bại!");
+            }
+        }
+        )
+    </script>
+
+</body>
+
+</html>

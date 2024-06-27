@@ -1,0 +1,23 @@
+.job {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 20px;
+
+    .job-title {
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
+
+.prev-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+        margin: 0 20px;
+    }
+
+    i {
+        font-size: 20px;
+    }
+}

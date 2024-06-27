@@ -1,0 +1,19 @@
+﻿body{
+	background: #f9f9f9;
+	color: #666;
+}
+
+/*Design view container*/
+.view{
+	width: 100%;
+	height: auto;
+	border-top: 1px solid blue;
+	border-bottom: 1px solid orange;
+	box-shadow: 10px 10px 30px rgba(100, 100, 100, 0.3);
+	border-radius: 5%;
+}
+
+.bg-full{
+	background-image: url(../img/bg-img.webp);
+	background-size: 100%;
+}

@@ -1,0 +1,25 @@
+/* --------------------------
+# Custom boostrap element
+----------------------------- */
+.btn-sm {
+    --bs-btn-padding-y: .25rem;
+    --bs-btn-padding-x: .5rem;
+    --bs-btn-font-size: .75rem;
+}
+.custom-tooltip {
+    --bs-tooltip-bg: #e8e8e8;
+    --bs-tooltip-color: #000;
+    --bs-tooltip-max-width: 500px;
+}
+
+/* ------------------------
+# My element
+--------------------------*/
+.avatar-sm {
+    width: 20px;
+    height: auto;
+    object-fit: cover;
+}
+#jobId {
+	font-size: 0.75rem;
+}
